@@ -1,0 +1,106 @@
+﻿@model IEnumerable<CrystalSorter.Models.Crystal>
+
+@{
+    ViewBag.Title = "Crystal DB";
+}
+
+<div class="row" >
+    <div class="col-md-6">
+        <h2>Black Desert Crystal DB</h2>
+        <p>A small database for crystals, most other databases lack sort functions. You are able to sort crystals by rarity and socket slot</p>
+        <p>Enjoy, Fisherino - Croxus EU</p>
+
+        <button class="accordion">Changelog</button>
+        <div class="panel">
+            <h4>4th August</h4>
+            <p>- Updated CrystalDB with the new black magic crystals that was added 13th July</p>
+            <h4>11th April - 2016</h4>
+            <p>- You can now filter crystals that is currently in EU/NA (Default)(A chance that a few could be missing)</p>
+            <h4>8th April - 2016</h4> 
+            <p>- You can now copy the name of a crystal to the clipboard</p>
+            <p>- Sorted crystals by Socket Slot.</p>    
+            <p>- Crystals with "Any Socket" are now showing on every slot</p>      
+            <h4>7th April - 2016</h4>
+            <p>- Added shattering chance</p>
+            <p>- You can now browse secondary crystals</p>
+            <p>- A small colored box as rarity added infront of a crystal's name</p>
+            <p>- Added a changelog</p>
+            <p>- Site is published</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Feedback!</h2>
+        <p>Please, don't hesitate if you have any feedback to send. If you find any missing crystals or typos just give me a heads up! NOT YET IMPLEMENTED</p>
+
+        <h3>Other projects</h3>
+        <p>I've stopped playing but I will keep updating the DB with new crystals if someone pokes me on Reddit, specifically in the thread I created.</p>
+        <p><span class="glyphicon glyphicon-duplicate"> </span> - Click on this icon to copy crystal name.</p>
+    </div>
+</div>
+<div class="row" style="margin-top: 10px;">
+    <div class="col-md-4">
+        <label>Rarity</label>
+    </div>
+    <div class="col-md-4">
+        <label>Socket</label>
+    </div>
+    <div class="col-md-4">
+        <label>Localization</label>
+    </div>
+</div>
+<div class="row" style="margin-bottom: 15px;">
+    <div class="col-md-4">
+        <select id="rarity" class="select-size" onchange="GetCrystals()">
+            <option value="Any">Any</option>
+            <option value="White">White</option>
+            <option value="Green">Green</option>
+            <option value="Blue">Blue</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Orange">Orange</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <select id="slot" class="select-size" onchange="GetCrystals()">
+            <option value="All">All</option>
+            <option value="Weapon">Weapon</option>
+            <option value="Secondary">Secondary Weapon</option>
+            <option value="Helmet">Helmet</option>
+            <option value="Armor">Armor</option>
+            <option value="Gloves">Gloves</option>
+            <option value="Shoes">Shoes</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <select id="localization" class="select-size" onchange="GetCrystals()">
+            <option value="All">All</option>
+            <option value="EU/NA" selected>EU/NA</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Item Effect</th>
+                <th>Shattering%</th>
+                <th>Socket</th>
+                <th>Rarity</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyT">
+        </tbody>
+    </table>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51320346-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script src="~/Scripts/Crystal.js"></script>
